@@ -1,0 +1,36 @@
+
+file: spree/admin/shared/_table_filter.html.erb
+
+<% if content_for?(:table_filter) %>
+  <div class="filter-wrap row">
+    <div class="col-sm-12">
+      <div class="input-group index-filter-button">
+        <span class="input-group-btn">
+          <button class="btn btn-default js-show-index-filters" type="button">
+            <span class="icon icon-chevron-right"></span>
+            <%= Spree.t(:filter) %>
+          </button>
+        </span>
+this is the search bar
+
+        <%= form_tag request.fullpath, id: "quick-search" do %>
+filter5
+          <%= text_field_tag :quick_search, nil, class: "form-control js-quick-search", placeholder: Spree.t(:quick_search) %>
+        <% end %>
+      </div>
+      
+
+filter3
+      <% unless defined?(simple) %>
+        <div id="table-filter" data-hook class="well filter-well">
+
+          <%= yield :table_filter %>
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+filter4
+  <div class="table-active-filters js-filters"></div>
+<% end %>
+filter5
