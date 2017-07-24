@@ -4,4 +4,6 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.*/
  @import require_self;
  @import require_tree;
-*
+
+*= require bootstrap-theme.min.css
+*= require bootstrap.min.css

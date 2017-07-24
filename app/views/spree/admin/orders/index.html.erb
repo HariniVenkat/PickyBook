@@ -1,9 +1,3 @@
-check 1
-
-
-
-
-
 <% content_for :page_title do %>
   <%= plural_resource_name(Spree::Order) %>
 <% end %>
@@ -36,7 +30,7 @@ check4
                     <i class="icon icon-calendar"></i>
                   </span>
                 </div>
-check5
+
               </div>
               <div class="col-md-6">
                 <div class="input-group">
@@ -49,7 +43,7 @@ check5
             </div>
           </div>
         </div>
-check6
+
         <div class="col-md-4">
           <div class="form-group">
             <%= label_tag :q_number_cont, Spree.t(:order_number, number: '') %>
@@ -58,7 +52,7 @@ check6
         </div>
 
       </div>
-check7
+
       <div class="row">
 
         <div class="col-md-4">
@@ -67,14 +61,14 @@ check7
             <%= f.select :state_eq, Spree::Order.state_machines[:state].states.map {|s| [Spree.t("order_state.#{s.name}"), s.value]}, {include_blank: true}, class: 'select2 js-filterable' %>
           </div>
         </div>
-check8
+
         <div class="col-md-4">
           <div class="form-group">
             <%= label_tag :q_payment_state_eq, Spree.t(:payment_state) %>
             <%= f.select :payment_state_eq, Spree::Order::PAYMENT_STATES.map {|s| [Spree.t("payment_states.#{s}"), s]}, {include_blank: true}, class: 'select2 js-filterable' %>
           </div>
         </div>
-check9
+
         <div class="col-md-4">
           <div class="form-group">
             <%= label_tag :q_shipment_state_eq, Spree.t(:shipment_state) %>
@@ -83,7 +77,7 @@ check9
         </div>
 
       </div>
-check10
+
       <div class="row">
 
         <div class="col-md-4">
@@ -92,14 +86,14 @@ check10
             <%= f.text_field :bill_address_firstname_start, class: 'form-control' %>
           </div>
         </div>
-check11
+
         <div class="col-md-4">
           <div class="form-group">
             <%= label_tag :q_bill_address_lastname_start, Spree.t(:last_name_begins_with) %>
             <%= f.text_field :bill_address_lastname_start, class: 'form-control' %>
           </div>
         </div>
-check12
+
         <div class="col-md-4">
           <div class="form-group">
             <%= label_tag :q_email_cont, Spree.t(:email) %>
@@ -110,32 +104,32 @@ check12
       </div>
 
       <div class="row">
-check13
+
         <div class="col-md-4">
           <div class="form-group">
             <%= label_tag :q_line_items_variant_sku_eq, Spree.t(:sku) %>
             <%= f.text_field :line_items_variant_sku_eq, class: 'form-control' %>
           </div>
         </div>
-check14
+
         <div class="col-md-4">
           <div class="form-group">
             <%= label_tag :q_promotions_id_in, Spree.t(:promotion) %>
             <%= f.select :promotions_id_in, Spree::Promotion.applied.pluck(:name, :id), {include_blank: true}, class: 'select2' %>
           </div>
         </div>
-check15
+
         <div class="col-md-4">
 
           <div class="form-group">
-check16
+
             <div class="checkbox">
               <%= label_tag 'q_completed_at_not_null' do %>
                 <%= f.check_box :completed_at_not_null, {checked: @show_only_completed}, '1', '0' %>
                 <%= Spree.t(:show_only_complete_orders) %>
               <% end %>
             </div>
-check17
+
             <div class="checkbox">
               <%= label_tag 'q_considered_risky_eq' do %>
                 <%= f.check_box :considered_risky_eq, {checked: (params[:q][:considered_risky_eq] == '1')}, '1', '' %>
@@ -144,7 +138,7 @@ check17
             </div>
 
           </div>
-check18
+
         </div>
 
       </div>
@@ -158,11 +152,11 @@ check18
   </div>
 
 <% end %>
-===========check19 end of filter
+
 
 this is a filter ....check spree/admin/shared/index_table_options.html.erb
 <%#= render 'spree/admin/shared/index_table_options', collection: @orders %>
-check20  ==========>>>>>>>>>>>
+
 <% if @orders.any? %>
   <table class="table" id="listing_orders" data-hook>
    
@@ -175,13 +169,13 @@ check20  ==========>>>>>>>>>>>
           <th><%= sort_link @search, :created_at,     I18n.t(:created_at, scope: 'activerecord.attributes.spree/order') %></th>
         <% end %>
        
-check21
+
 
 
         <th><%= sort_link @search, :number,           I18n.t(:number, scope: 'activerecord.attributes.spree/order') %></th>
         
 
-=========>>>>>>>>>========
+
 
         <th><%= sort_link @search, :considered_risky, I18n.t(:considered_risky, scope: 'activerecord.attributes.spree/order') %></th>
         <th><%= sort_link @search, :state,            I18n.t(:state, scope: 'activerecord.attributes.spree/order') %></th>
@@ -196,7 +190,7 @@ check21
     </thead>
     <tbody>
 
-check22
+
 table header over
    <% @orders.each do |order| %>
       <tr data-hook="admin_orders_index_rows" class="state-<%= order.state.downcase %> <%= cycle('odd', 'even') %>">
@@ -211,21 +205,21 @@ table header over
         </td>
         <td>
 
-check 29
+
 
           <span class="label label-<%= order.state.downcase %>"><%= Spree.t("order_state.#{order.state.downcase}") %></span>
           <span class="icon icon-filter filterable js-add-filter" data-ransack-field="q_state_eq" data-ransack-value="<%= order.state %>"></span>
         </td>
         <td>
         
-check 30
+
           <% if order.payment_state %>
             <span class="label label-<%= order.payment_state %>"><%= link_to Spree.t("payment_states.#{order.payment_state}"), admin_order_payments_path(order) %></span>
             <span class="icon icon-filter filterable js-add-filter" data-ransack-field="q_payment_state_eq" data-ransack-value="<%= order.payment_state %>"></span>
           <% end %>
         </td>
         
-check 31
+
         <% if Spree::Order.checkout_step_names.include?(:delivery) %>
           <td>
             <% if order.shipment_state %>
@@ -238,7 +232,7 @@ check 31
 
 
 
-        check23
+
           <% if order.user %>
             <%= link_to order.email, edit_admin_user_path(order.user) %>
           <% else %>
@@ -249,13 +243,13 @@ check 31
           <% end %>
 
 
-          check24
+
         </td>
         <td><%= order.display_total.to_html %></td>
         <td class='actions actions-1' data-hook="admin_orders_index_row_actions">
           <%= link_to_edit_url edit_admin_order_path(order), title: "admin_edit_#{dom_id(order)}", no_text: true %>
 
-check25
+
 
         </td>
       </tr>
@@ -264,12 +258,11 @@ check25
   </table>
 <% else %>
 
-check26
+
   <div class="alert alert-info no-objects-found">
     <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Order)) %>,
     <%= link_to(Spree.t(:add_one), new_admin_order_url) if can? :create, Spree::Order %>!
   </div>
 <% end %> 
-check27
+
 <%#= render 'spree/admin/shared/index_table_options', collection: @orders, simple: true %>
-check28

@@ -32,6 +32,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
+gem 'pg', '~> 0.21.0'
+
+
 gem 'spree', '~> 3.2.0'
 gem 'spree_auth_devise', '~> 3.2.0.beta'
 gem 'spree_gateway', '~> 3.2'
@@ -62,4 +66,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem "twitter-bootstrap-rails"
+
+
+
+#spree gem integration with paytm.....
+gem 'spree_paytm', '~> 1.0', '>= 1.0.3.3'
+
+
+gem 'spree_admin_insights', '~> 3.2'
+gem 'spree_events_tracker', '~> 3.2', '>= 3.2.1'
+
 
